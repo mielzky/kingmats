@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {!! config('app.name', trans('titles.app')) !!}
+            CSMS
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -16,6 +16,10 @@
                             {!! trans('titles.adminDropdownNav') !!}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item {{ Request::is('activity') ? 'active' : null }}" href="{{ url('/home') }}">
+                                Dashboard
+                            </a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item {{ (Request::is('roles') || Request::is('permissions')) ? 'active' : null }}" href="{{ route('laravelroles::roles.index') }}">
                                 {!! trans('titles.laravelroles') !!}
                             </a>
@@ -29,31 +33,19 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item {{ Request::is('themes','themes/create') ? 'active' : null }}" href="{{ url('/themes') }}">
-                                {!! trans('titles.adminThemesList') !!}
+                                Text Blast
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item {{ Request::is('logs') ? 'active' : null }}" href="{{ url('/logs') }}">
-                                {!! trans('titles.adminLogs') !!}
+                                Statistic
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item {{ Request::is('activity') ? 'active' : null }}" href="{{ url('/activity') }}">
-                                {!! trans('titles.adminActivity') !!}
+                                Blank
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item {{ Request::is('phpinfo') ? 'active' : null }}" href="{{ url('/phpinfo') }}">
-                                {!! trans('titles.adminPHP') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('routes') ? 'active' : null }}" href="{{ url('/routes') }}">
-                                {!! trans('titles.adminRoutes') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('active-users') ? 'active' : null }}" href="{{ url('/active-users') }}">
-                                {!! trans('titles.activeUsers') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('blocker') ? 'active' : null }}" href="{{ route('laravelblocker::blocker.index') }}">
-                                {!! trans('titles.laravelBlocker') !!}
+                                Blank
                             </a>
                         </div>
                     </li>
@@ -64,7 +56,6 @@
                 {{-- Authentication Links --}}
                 @guest
                     <li><a class="nav-link" href="{{ route('login') }}">{{ trans('titles.login') }}</a></li>
-                    <li><a class="nav-link" href="{{ route('register') }}">{{ trans('titles.register') }}</a></li>
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

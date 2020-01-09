@@ -2,7 +2,7 @@
 
 return [
 
-    'app'               => 'Laravel',
+    'app'               => 'CSMS',
     'app2'              => 'Auth :version',
     'home'              => 'Home',
     'login'             => 'Login',
